@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import classes from './Cockpit.css';
 
 const cockpit = (props) => {
-    console.log('[Cockpit.js] rendering...')
+    
     const assignedClasses = [];
     let btnClass = '';
     if(props.showPersons){
