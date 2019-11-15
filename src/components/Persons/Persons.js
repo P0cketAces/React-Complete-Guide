@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import Person from './Person/Person';
 
-class Persons extends Component{
+class Persons extends PureComponent{
     // static getDerivedStateFromProps(props, state){
     //     console.log('[Persons.js] getDerivedStateFromProps');
     //     return state;
@@ -11,20 +11,24 @@ class Persons extends Component{
     //     console.log('[Persons.js] componentWillReceiveProps', props);
     // }
 
-    shouldComponentUpdate(nextProps, nextState){
-        console.log('[Persons.js] shouldComponentUpdate');
-        // This is doing a shallow compare but we're ok here
-        // because when we compare the pointers, they should be pointing
-        // to different memory addresses due to the fact that we are
-        // creating a new persons array and copying data over to it
-        // in the app.js function rather than modifying the original.
-        if(nextProps.persons !== this.props.persons){
-            return true
-        }
-        else{
-            return false;
-        }
-    }
+    // shouldComponentUpdate(nextProps, nextState){
+    //     console.log('[Persons.js] shouldComponentUpdate');
+    //     // This is doing a shallow compare but we're ok here
+    //     // because when we compare the pointers, they should be pointing
+    //     // to different memory addresses due to the fact that we are
+    //     // creating a new persons array and copying data over to it
+    //     // in the app.js function rather than modifying the original.
+    //     if(
+    //         nextProps.persons !== this.props.persons || 
+    //         nextProps.changed !== this.props.changed ||
+    //         nextProps.click !== this.props.click
+    //     ) {
+    //         return true
+    //     }
+    //     else{
+    //         return false;
+    //     }
+    // }
 
     getSnapshotBeforeUpdate(prevProps, prevState){
         console.log('[Persons.js] getSnapshotBeforeUpdate');
