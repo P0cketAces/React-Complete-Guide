@@ -13,7 +13,17 @@ class Persons extends Component{
 
     shouldComponentUpdate(nextProps, nextState){
         console.log('[Persons.js] shouldComponentUpdate');
-        return true;
+        // This is doing a shallow compare but we're ok here
+        // because when we compare the pointers, they should be pointing
+        // to different memory addresses due to the fact that we are
+        // creating a new persons array and copying data over to it
+        // in the app.js function rather than modifying the original.
+        if(nextProps.persons !== this.props.persons){
+            return true
+        }
+        else{
+            return false;
+        }
     }
 
     getSnapshotBeforeUpdate(prevProps, prevState){
